@@ -33,6 +33,16 @@ function drawBoss(){
   bossHealthSpan.innerText = `${boss.health}`
 }
 
+function drawHeroes(){
+  let heroElem = document.getElementById()
+}
+
+// function drawHeroes(){
+//   let heroElem = document.getElementById('hero-health')
+//   let heroHealthSpan = heroElem.querySelector('span')
+//   heroHealthSpan.innerText = `${}`
+// }
+
 // SECTION OTHER FUNCTIONS
 
 
@@ -42,7 +52,7 @@ function attackBoss(){
   heroes.forEach(hero => {
     totalDamage += hero.damage
     console.log(totalDamage);
-  });
+  })
   if (totalDamage > 0){
     boss.health -= totalDamage
   }
@@ -53,7 +63,41 @@ function attackBoss(){
   drawBoss()
 }
 
+// function attackHeroes(){
+//   let attackedHero = heroes.find(hero => hero.health = heroHealth)
+//   attackedHero.health -= 5
+//   if (attackedHero.health < 0) {
+//     attackedHero.health = 0
+//   }
+//   console.log(attackedHero.health);
+// }
+
+function attackHeroes(){
+  heroes.forEach(attackedHero => {
+    attackedHero.health -=5
+    if (attackedHero.health < 0) {
+      attackedHero.health = 0
+      return
+    }
+    console.log(attackedHero.health);
+  })
+}
+
+// function attackHeroes(){
+//   let heroHealth = 100
+//   heroes.forEach(hero => {
+//     hero.health -= boss.damage
+//     heroHealth = hero.health
+//   })
+//   if (heroHealth < 0) {
+//     heroHealth = 0
+//   }
+//   console.log(heroes);
+// }
+
 
 
 
 // SECTION INITIALIZERS
+
+setInterval(attackHeroes, 750)
