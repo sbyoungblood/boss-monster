@@ -1,3 +1,6 @@
+
+// SECTION VARIABLES/ARRAYS
+
 let heroes = [
   {
       name: 'Slate Slabrock',
@@ -20,3 +23,37 @@ let boss = {
   damage: 5,
   level: 1
 }
+
+// SECTION DRAW FUNCTIONS
+
+
+function drawBoss(){
+  let bossElem = document.getElementById('boss-health')
+  let bossHealthSpan = bossElem.querySelector('span')
+  bossHealthSpan.innerText = `${boss.health}`
+}
+
+// SECTION OTHER FUNCTIONS
+
+
+function attackBoss(){
+  
+  let totalDamage = 0
+  heroes.forEach(hero => {
+    totalDamage += hero.damage
+    console.log(totalDamage);
+  });
+  if (totalDamage > 0){
+    boss.health -= totalDamage
+  }
+  if (boss.health < 0) {
+    boss.health = 0
+  }
+  console.log(boss.health);
+  drawBoss()
+}
+
+
+
+
+// SECTION INITIALIZERS

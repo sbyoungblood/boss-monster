@@ -16,9 +16,26 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <title>Boss Monster</title>
+  <style>
+    body.debug .container,
+    body.debug .container-fluid {
+      outline: 2px double blue;
+      outline-offset: -2px;
+    }
+
+    body.debug .row {
+      outline: 2px dashed red;
+      outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+      outline: 2px dotted forestgreen;
+      outline-offset: -3px;
+    }
+  </style>
 </head>
 
-<body>
+<body class="debug">
 
   <header>
     <div class="bg-dark text-light text-center p-3">
@@ -30,7 +47,7 @@
 
   <main>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row hero-row">
         <div class="col-md-6 heros">
           <div class="row" id="hero-cards">
             <!-- SECTION HERO TEMPLATE BEGIN -->
@@ -65,14 +82,29 @@
         </div>
         <div class="col-3"></div>
       </div>
+      <div class="row boss-row justify-content-center">
+        <div class="col-md-8 p-2">
+          <div class="card boss-card">
+            <img
+              src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+              alt="scary-boss-cat" onclick="attackBoss()">
+            <div class="card-body">
+              <div class="" id="boss-name">
+                <p><b>Karen</b></p>
+              </div>
+              <div class="" id="boss-health"><span>100</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
   <footer class="bg-dark text-light text-center p-2">
     <div>
-      <h3>
+      <h5>
         By Parker and Scotty
-      </h3>
+      </h5>
     </div>
   </footer>
 
