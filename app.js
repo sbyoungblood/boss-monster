@@ -6,13 +6,15 @@ let heroes = [
       name: 'Slate Slabrock',
       type: 'dwarf',
       damage: 5,
-      health: 100
+      health: 100,
+      image:"https://images.unsplash.com/photo-1501432377862-3d0432b87a14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80"
   },
   {
       name: 'Flint Ironstag',
       type: 'elf',
       damage: 10,
-      health: 50
+      health: 50,
+      image:"https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
   }
 ]
 
@@ -34,7 +36,19 @@ function drawBoss(){
 }
 
 function drawHeroes(){
-  let heroElem = document.getElementById()
+  let heroElem = document.getElementById('hero')
+  let heroHealthSpan = heroElem.querySelector('span')
+  let template = ''
+
+  heroes.forEach(hero => {
+    template += /*html*/
+    `<div class="col-4">
+    <img class="img-fluid" src="${hero.image}">
+    <p><b>${hero.name}</b></p>
+    <div class=""><span>${hero.health}</span></div>
+  </div>`
+  })
+  heroElem.innerHTML= template
 }
 
 // function drawHeroes(){
@@ -81,6 +95,7 @@ function attackHeroes(){
     }
     console.log(attackedHero.health);
   })
+  drawHeroes()
 }
 
 // function attackHeroes(){
@@ -100,4 +115,5 @@ function attackHeroes(){
 
 // SECTION INITIALIZERS
 
-setInterval(attackHeroes, 750)
+setInterval(attackHeroes, 3000
+  )
